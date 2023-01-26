@@ -6,20 +6,20 @@
 // Each round compares the user score and the computer score.
 // If one score === 5 then the game is over.
 
-// Global variable accessible to all functions
-let choices = ["Rock", "Paper", "Scissors"];
 
 // simulate computer choice by randomly returning "Rock", "Paper", or "Scissors"
 function getComputerChoice() {
-    // choose a random number between 0 and 2
+    // what the computer can choose from
+    let choices = ["Rock", "Paper", "Scissors"];
+    
+    // chooses a random number between 0 and 2
     function chooseRandomNumber() {
         return Math.floor(Math.random() * 3);
     }
     
-    // choose index position from choices
+    // what the computer chooses
     let computerChoice = chooseRandomNumber();
 
-    //return random choice
+    //return the computer's choice
     return choices[computerChoice];
 }
-
