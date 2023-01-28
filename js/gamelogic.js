@@ -16,15 +16,10 @@ function getComputerChoice() {
     }
     
     // What the computer chose
-    let computerChoice = chooseRandomNumber();
+    let computerChoice = choices[chooseRandomNumber()].toLowerCase();
 
     // Return the computer's choice
-    return choices[computerChoice];
+    return computerChoice;
 }
 
-// Play a single round of rock, paper, scissors
-function playRound(playerSelection, computerSelection) {
-    // Acquire case-insensitive user input
-    let userInput = prompt("Enter your choice: Rock, Paper, Scissors").toUpperCase();
-}
 
