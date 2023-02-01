@@ -6,20 +6,34 @@
 // Each round compares the user score and the computer score
 // If one score === 5 then the game is over
 
-let choices = ["Rock", "Paper", "Scissors"];
-
 // Simulate computer choice by randomly returning "Rock", "Paper", or "Scissors"
 function getComputerChoice() {
+    let choices = ["Rock", "Paper", "Scissors"];
+    
     // Choose a random number between 0 and 2
     function chooseRandomNumber() {
         return Math.floor(Math.random() * 3);
     }
     
     // What the computer chose
-    let computerChoice = choices[chooseRandomNumber()].toLowerCase();
+    let computerChoice = choices[chooseRandomNumber()];
 
     // Return the computer's choice
     return computerChoice;
 }
 
+function getPlayerChoice() {
+    // Capitalizes the first letter of a string
+    function capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }    
 
+    // Get user input and store it in a variable
+    let userInput = prompt("Enter your choice: Rock, Paper, Scissors").toLowerCase();
+    
+    // Capitalize first letter of user input
+    let playerChoice = capitalizeFirstLetter(userInput);
+
+    // Return player choice
+    return playerChoice;
+}
