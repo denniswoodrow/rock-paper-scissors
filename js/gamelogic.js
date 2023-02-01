@@ -1,10 +1,6 @@
-// User inputs one of three choices
-// The computer generates one of three choices
-// The user choice and the computer choice are compared
-// If the user choice beats the computer choice then the user score += 1
-// If the computer choice beats the user choice then the computer score += 1
-// Each round compares the user score and the computer score
-// If one score === 5 then the game is over
+// Global variables keeping track of score
+let playerScore = 0;
+let computerScore = 0;
 
 // Simulate computer choice by randomly returning "Rock", "Paper", or "Scissors"
 function getComputerChoice() {
@@ -45,18 +41,29 @@ function playRound(playerSelection, computerSelection) {
         case "RockScissors":
         case "PaperRock":
         case "ScissorsPaper":
-            console.log(`You win! ${playerSelection} beats ${computerSelection}`);
-            break;
+            playerScore += 1
+            return `You win! ${playerSelection} beats ${computerSelection}`;
         case "RockPaper":
         case "PaperScissors":
         case "ScissorsRock":
-            console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
-            break;
+            computerScore += 1
+            return `You lose! ${computerSelection} beats ${playerSelection}`;
         default:
-            console.log(`You tie! ${playerSelection} ties ${computerSelection}`);
+            
+            return `You tie! ${playerSelection} ties ${computerSelection}`;
     }        
 }
 
-const playerSelection = getPlayerChoice();
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+function game() {
+    // Simulate a 5 round game
+    for (let i = 0; i < 5; i++) {
+        playRound (getPlayerChoice(), getComputerChoice());
+    }    
+    
+    // Declare the winner
+    if (playerScore > computerScore) {
+        console.log("You win!")
+    } else {
+        console.log("You lose.")
+    }
+}
