@@ -37,3 +37,26 @@ function getPlayerChoice() {
     // Return player choice
     return playerChoice;
 }
+
+// Play a single round of rock, paper, scissors
+function playRound(playerSelection, computerSelection) {
+    // Compares player choice to computer choice
+    switch (playerSelection + computerSelection) {
+        case "RockScissors":
+        case "PaperRock":
+        case "ScissorsPaper":
+            console.log(`You win! ${playerSelection} beats ${computerSelection}`);
+            break;
+        case "RockPaper":
+        case "PaperScissors":
+        case "ScissorsRock":
+            console.log(`You lose! ${computerSelection} beats ${playerSelection}`);
+            break;
+        default:
+            console.log(`You tie! ${playerSelection} ties ${computerSelection}`);
+    }        
+}
+
+const playerSelection = getPlayerChoice();
+const computerSelection = getComputerChoice();
+console.log(playRound(playerSelection, computerSelection));
