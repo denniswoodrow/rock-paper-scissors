@@ -58,6 +58,7 @@ function game() {
     // Simulate a 5 round game
     for (let i = 0; i < 5; i++) {
         playRound (getPlayerChoice(), getComputerChoice());
+        displayScore(playerScore, computerScore);
     }    
     
     // Declare the winner
@@ -66,4 +67,9 @@ function game() {
     } else {
         console.log("You lose.")
     }
+}
+
+function displayScore(playerScore, computerScore) {
+    // Displays the player score and computer score
+    console.log(`The player score is: ${playerScore} and the computer score is: ${computerScore}`)
 }
